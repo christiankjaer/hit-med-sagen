@@ -8,7 +8,7 @@ import sys
 import codecs
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
  
 # Define some colors
@@ -24,10 +24,10 @@ questions = []
 
 f = codecs.open(sys.argv[1], 'r', 'utf-8')
 
-chop = webdriver.ChromeOptions()
-chop.add_extension('Adblock-Plus_v1.12.4.crx')
+chop = FirefoxProfile()
+chop.add_extension('ublock.xpi')
 
-dr = webdriver.Chrome(chrome_options = chop)
+dr = webdriver.Firefox(firefox_profile = chop)
 
 for line in f:
     q = []
